@@ -118,8 +118,7 @@ view_mode = st.sidebar.radio(
 # ------------------------------------------------------------------------------
 if view_mode == "📖 Article & Integrated Analytics":
   st.title(
-      "Why the NHS Doesn’t Just Have a Bed Crisis—It Has a Flow Crisis: A"
-      " 10-Year Data Analysis (2016–2026)"
+      "The Patient Flow Crisis Of The NHS: A 10-Year Data Analysis (2016–2026)"
   )
   st.caption(
       "**By Ibinabo Adiela** | Healthcare Data Analyst & Registered Nurse"
@@ -137,29 +136,28 @@ if view_mode == "📖 Article & Integrated Analytics":
 
   # Introduction
   st.markdown("""
-    ### Introduction: The View From the Ward Floor
+    ### The View From the Ward Floor
 
-    If you have ever worked an evening shift inside an acute NHS ward during winter pressures, you know the sensory indicators of gridlock before you even check the status board. You hear the chime of call bells from patients waiting for discharge letters, you see paramedics waiting in corridors with stretcher patients, and you feel the operational tension of a hospital running at 100% capacity.
+    If you have worked an evening shift in an acute NHS ward during winter peak periods, you know the signs of a patient gridlock long before you check the status board. You hear call bells chiming continuously for patients waiting on delayed discharge letters. You see paramedics waiting in hallways beside patients on stretchers. You feel the definite tension of a hospital running at full operational capacity.
 
-    For years, public debates around healthcare reform have focused almost exclusively on a single metric: **bed numbers**. The political response has been consistent: *add more funding, open more beds, hire more staff.*
+    For years, public debates around healthcare reform have fixated on a single metric: bed numbers. The policy response has been predictable: add funding, open beds, hire staff.
 
-    Yet, after analyzing **10 years of NHS KH03 bed occupancy data (2016 through 2026)**—encompassing thousands of quarterly records across every acute trust in England—the empirical reality is undeniable: **the NHS does not simply have a physical capacity problem; it has a systemic patient flow problem.**
+    Yet, after analysing 10 years of NHS KH03 bed occupancy data (2016 through 2026), thousands of quarterly records across every acute trust in England, the empirical reality is clear: the NHS does not simply have a physical capacity problem; it has a systemic patient flow problem.
     """)
 
   # Part 1 + Interactive Plot
   st.markdown("""
     ---
-    ### Part 1: The Macro Reality—Operating Above Safety Limits for a Decade
+    ### Operating Above Safety Limits for a Decade
 
-    Clinical guidelines from the National Institute for Health and Care Excellence (NICE) and healthcare think tanks like The King’s Fund establish **85% occupancy** as the safe ceiling for acute hospital operation. Past 85%, hospitals lose the operational flexibility to handle emergency admissions, bed turnover times collapse, and infection prevention buffers break down.
+    Clinical guidelines from the National Institute for Health and Care Excellence (NICE) and healthcare think tanks like The King’s Fund establish 85% occupancy as the safe upper threshold for acute hospital operation. *(NHS Hospital Bed Numbers: Past, Present, Future, 2019)* Above 85%, hospitals lose the functional flexibility to manage emergency admissions, bed turnaround times collapse, and infection-control buffers break down. *(O'Dowd, 2021)*
 
-    My 10-year national data analysis reveals a stark trajectory:
-    - **2016–2020 Baseline:** National General & Acute (G&A) occupancy hovered near critical limits, averaging **~90.2%** year after year.
-    - **The 2020–21 Anomaly:** During peak COVID-19 restrictions, mandatory physical distancing and elective surgery halts artificially drove national occupancy down to **76.76%**.
-    - **The Post-Pandemic Overshoot:** Rather than stabilizing near safe thresholds, occupancy surged post-2021. By **2025–26, national G&A occupancy reached a 10-year peak of 91.58%**.
+    My 10-year national data analysis shows a sharp operational trajectory:
+    - **2016–2020 Baseline:** National General & Acute (G&A) occupancy hovered close to critical limits, averaging ~90.2% year after year. *(Critical Care Bed Capacity and Urgent Operations Cancelled 2016-17 Data, n.d.)*
+    - **The 2020–21 Anomaly:** During peak COVID-19 restrictions, mandatory social distancing and elective surgery halts artificially drove national occupancy down to 76.76%. *(Hospital Admitted Patient Care Activity 2020-21, n.d.)*
+    - **The Post-COVID-19 Overshoot:** Rather than stabilising near safe thresholds, occupancy rebounded. By 2025–26, national G&A occupancy reached a 10-year peak of 91.58%. *(Hospital bed occupancy, 2025)*
     """)
 
-  # Plot 1: Macro Trend
   fig_macro = px.line(
       macro_df,
       x="Year",
@@ -185,11 +183,16 @@ if view_mode == "📖 Article & Integrated Analytics":
   # Part 2 + Interactive Plot
   st.markdown("""
     ---
-    ### Part 2: The Micro Epicenter—The 99% Gridlock
+    ### The 99% Gridlock
 
-    National averages soften local pain points. When filtering the 2025–26 dataset down to individual hospital trusts (and excluding specialist centers to evaluate general acute care), the data identifies specific acute trusts operating at virtual gridlock.
+    National averages often cushion local pain points. When filtering the 2025–26 dataset down to individual hospital trusts (and excluding specialist centres like Moorfields Eye Hospital to focus exclusively on general acute care), the data exposes acute trusts functioning at virtual gridlock:
+    
+    1. **Buckinghamshire Healthcare NHS Trust:** 99.43% G&A Occupancy
+    2. **York Teaching Hospital NHS Foundation Trust:** 99.09% G&A Occupancy
+    3. **George Eliot Hospital NHS Trust:** 98.79% G&A Occupancy
+    4. **University Hospitals Coventry and Warwickshire:** 98.75% G&A Occupancy
 
-    Running a general acute trust at **99% average annual occupancy** means that once turnaround times, room cleaning, and emergency holdovers are accounted for, the facility is functioning with zero operational buffer.
+    Running an acute trust at 99% average annual occupancy means that after accounting for turnaround times, room cleaning, and emergency holdovers, the facility has no operational buffer.
     """)
 
   fig_top10 = px.bar(
@@ -211,29 +214,30 @@ if view_mode == "📖 Article & Integrated Analytics":
   )
   st.plotly_chart(fig_top10, use_container_width=True)
 
-  # Part 3 & Part 4
+  # Part 3 & 4
   st.markdown("""
     ---
-    ### Part 3: The Front Door, Internal Flow, and the "Back Door" Trap
+    ### The Front Door, Internal Engine, and the “Back Door” Trap
 
-    Why does adding beds fail to resolve gridlock? Think-tank analysis from *Re:State* and research from *The Health Foundation* confirm that acute hospitals are trapped between three operational friction points:
+    Why does adding beds fail to resolve gridlock? Policy research from reports like Re:State’s *Hospital of the Future*, independent findings from *The Health Foundation*, and evaluations from the British Medical Association (BMA) confirm that acute hospitals are trapped across three operational friction points:
 
     1. **The Front Door (A&E Overload):** Emergency departments absorb unscheduled care demand when primary care or community response pathways are saturated.
-    2. **The Internal Engine (In-Hospital Bottlenecks):** Diagnostic delays, slow consultations, and lack of 7-day consultant decision-making slow down care progression.
-    3. **The Back Door (Social Care Deficit):** This represents the primary systemic failure. Thousands of hospital beds are occupied by patients who are clinically fit for discharge but remain hospitalized due to a lack of social care packages, community rehabilitation, or step-down placement.
+    2. **The Internal Engine (In-Hospital Bottlenecks):** Diagnostic delays, slow consultations, and a lack of weekend consultant decision-making on discharges slow care progression.
+    3. **The Back Door (Social Care Deficit):** This represents the primary systemic bottleneck. Thousands of hospital beds are occupied by patients who are clinically fit for discharge but remain hospitalised due to delayed social care packages, community rehabilitation, or local authority housing arrangements.
 
-    As noted in recent policy evaluations by the BMA, holding a clinically ready patient in an acute bed costs the system over £400 per day—while increasing risks of hospital-acquired infections and deconditioning.
+    As BMA NHS Bed Data Analysis highlights, keeping a clinically ready patient in an acute bed costs the system over £400 per day and increases the risk of hospital-acquired infections and deconditioning.
 
     ---
-    ### Part 4: Sector Divergence—Acute vs. Specialty Pathways
+    ### Sector Divergence, Acute vs Speciality Pathways
 
-    A key finding from the 10-year analysis lies in sector comparison:
-    - **General & Acute (91.58%)** and **Mental Health (89.07%)** operate in perpetual stress states.
-    - **Maternity Services (61.08%)** maintain healthy operational buffers due to predictable admission streams.
-    - **Learning Disabilities (61.38%)** show a structural decline over a decade, reflecting policy shifts toward community-focused care.
+    A critical finding from the 10-year analysis lies in sector comparison:
+    - **General & Acute (91.58%)** and **Mental Health (89.07%)** operate under perpetual stress.
+    - **Maternity Services (61.08%)** maintain healthy operational buffers because admission streams are predictable.
+    - **Learning Disabilities (61.38%)** show a structural decline over a decade, reflecting policy transformations toward community-focused care models.
+
+    This difference shows that blanket capacity expansion is inefficient: capital investment and operational flow interventions must target Acute Care and Mental Health pathways.
     """)
 
-  # Sector Melted Chart
   melted_sector = pd.melt(
       sector_df,
       id_vars=["Year"],
@@ -264,16 +268,29 @@ if view_mode == "📖 Article & Integrated Analytics":
   )
   st.plotly_chart(fig_sector, use_container_width=True)
 
-  # Part 5 & Recommendations
+  # Tech Adoption & Recommendations
   st.markdown("""
     ---
-    ### Part 5: From Reaction to Prediction—Actionable Policy & Tech Recommendations
+    ### The Realities of NHS Tech Adoption
 
-    To break the gridlock, the NHS must move from reactive bed management to predictive operational flow:
+    A common reflex in healthcare policy is treating software as an instant remedy: if we digitise, gridlock clears.
 
-    1. **Mandate Automated Bed Turnover Tracking:** Transitioning from manual ward whiteboards to automated bed tracking and teletracking platforms provides real-time visibility into bed readiness across entire regional networks.
-    2. **Unblock the Back Door via Ambient AI & Automated Summaries:** Deploying ambient AI tools for discharge paperwork and instant pharmacy scripting eliminates hours of administrative delays on discharge day.
-    3. **Rebalance Acute and Community Resources:** Systemic flow cannot be solved in acute wards alone. Investment must match social care demand to ensure "fit-to-discharge" patients transition out of acute beds without delay.
+    In its tactical planning guidance (such as the NHS Priorities and Operational Planning Guidance) and national transformation frameworks, NHS England formally pushed for the rollout of Electronic Patient Record (EPR) systems to replace traditional bedside whiteboards.
+
+    On paper, procurement figures look solid: industry tracking reported via *Building Better Healthcare* confirms that over 90% of NHS trusts have deployed an active EPR system.
+
+    However, examining functional integration reveals a major operational gap:
+    - **The Integration Effort Deficit:** Reviews by independent think tanks like *The Health Foundation* show that basic software procurement does not equal full system integration. Many providers maintain fragmented software that fails to communicate effectively with regional social care or downstream community networks.
+    - **The Operational Bottleneck:** Frontline clinical evaluations observe that installing basic record systems without advanced automated bed-turnover triggers or real-time workflow modules forces clinical staff back onto manual workarounds.
+
+    ---
+    ### Actionable Policy & Recommendations
+
+    To break chronic gridlock, the NHS must move from reactive bed management to predictive operational flow:
+    
+    1. **Bridge the Functional Integration Gap:** Rather than celebrating baseline EPR procurement milestones, healthcare leadership must fund advanced, interoperable modules, such as automated bed-turnover triggers and real-time tracking platforms, so systems actively coordinate patient movement rather than just recording static data.
+    2. **Unblock the Back Door via Automated Discharge Coordination:** Deploy structured electronic workflow tools for discharge summaries and pharmacy sign-offs to cut hours of administrative delay on discharge day.
+    3. **Rebalance Acute and Community Resources:** Acute wards alone can't solve systemic flow. Allocation must correspond to social care demand so that “fit-to-discharge” patients transition out of acute beds without delay.
     """)
 
 # ------------------------------------------------------------------------------
