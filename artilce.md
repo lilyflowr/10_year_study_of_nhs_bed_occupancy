@@ -19,9 +19,9 @@ Clinical guidelines from the National Institute for Health and Care Excellence (
 
 My 10-year national data analysis shows a sharp operational trajectory:
 
-* 2016–2020 Baseline: National General & Acute (G&A) occupancy hovered close to critical limits, averaging ~90.2% year after year. (Critical Care Bed Capacity and Urgent Operations Cancelled 2016-17 Data, n.d.)
-* The 2020–21 Anomaly: During peak COVID-19 restrictions, mandatory social distancing and elective surgery halts artificially drove national occupancy down to 76.76%. (Hospital Admitted Patient Care Activity 2020-21, n.d.)
-* The Post-COVID-19 Overshoot: Rather than stabilising near safe thresholds, occupancy rebounded. By 2025–26, national G&A occupancy reached a 10-year peak of 91.58%. (Hospital bed occupancy, 2025)
+* 2016–2020 Baseline: National General & Acute (G&A) occupancy hovered close to critical limits, averaging ~90.2% year after year.
+* The 2020–21 Anomaly: During peak COVID-19 restrictions, mandatory social distancing and elective surgery halts artificially drove national occupancy down to 76.76%.
+* The Post-COVID-19 Overshoot: Rather than stabilising near safe thresholds, occupancy rebounded. By 2025–26, national G&A occupancy reached a 10-year peak of 91.58%.
 
 ### The 99% Gridlock
 
@@ -77,6 +77,6 @@ To break chronic gridlock, the NHS must move from reactive bed management to pre
 
 You can explore the live interactive dataset, filter by region, and review 10-year trends on my public profile:
 
-[Link to Published Tableau Public Dashboard](https://public.tableau.com/app/profile/ibinabo.adiela/viz/NHSEngland10-YearBedCapacityOccupancyStrategicReview20162026/NHSEngland10-YearBedCapacityOccupancyStrategicReview20162026?showOnboarding=true)
+[Link to Published Streamlit Public Dashboard](https://nhs-10-year-bed-occupancy-rate-study.streamlit.app/)
 
 **
